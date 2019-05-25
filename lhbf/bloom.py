@@ -1,6 +1,8 @@
-from hash_function import hash_int, hash_str
-import numpy as np
 import warnings
+
+import numpy as np
+
+from hash_function import hash_int, hash_str
 
 
 class BloomFilter():
