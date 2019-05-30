@@ -4,7 +4,7 @@ import unittest
 
 class BloomTest(unittest.TestCase):
     def test_bloom_str(self):
-        bf = BloomFilter(m=50, k=2)
+        bf = BloomFilter(m=200, k=2)
 
         examples = ["a", "b", "c", "d", "e"]
         for e in examples:
@@ -16,7 +16,7 @@ class BloomTest(unittest.TestCase):
             assert (bf.might_contain(e) == False)
 
     def test_bloom_int(self):
-        bf = BloomFilter(m=50, k=2)
+        bf = BloomFilter(m=200, k=2)
         examples = [1, 2, 3, -4, -5, 6]
 
         for e in examples:
@@ -30,7 +30,7 @@ class BloomTest(unittest.TestCase):
         assert (bf.might_contain(-4) == True)
 
     def test_bloom_none(self):
-        bf = BloomFilter(m=50, k=2)
+        bf = BloomFilter(m=200, k=2)
         examples = [1, 2, None, -4, -5, 6]
 
         for e in examples:
@@ -44,12 +44,12 @@ class BloomTest(unittest.TestCase):
         assert (bf.might_contain(None) == True)
 
     def test_estimate_fpp(self):
-        bf = BloomFilter(m=50, k=2)
+        bf = BloomFilter(m=200, k=2)
         examples = [1, 2, 3, -4, -5, 6]
 
         for e in examples:
             bf.add(e)
-        fpp_expected = 0.04552766967303401
+        fpp_expected = 0.003391369548660095
         fpp = bf.estimate_fpp()
         assert (fpp == fpp_expected)
         assert (fpp >= 0.0 and fpp <= 1.0)
@@ -78,7 +78,7 @@ class BloomTest(unittest.TestCase):
         assert (bf1.might_contain(300) == True)
 
         bf1 = BloomFilter(m=80, k=2)
-        bf2 = BloomFilter(m=20, k=2)
+        bf2 = BloomFilter(m=90, k=2)
 
         msg = "Bloom filter should have the same parameters (m, k)"
         with self.assertRaises(ValueError, msg=msg):
