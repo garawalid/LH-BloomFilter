@@ -1,4 +1,5 @@
 ## Less Hash Bloom Filter
+[![Build Status](https://travis-ci.com/garawalid/LH-BloomFilter.svg?branch=master)](https://travis-ci.com/garawalid/LH-BloomFilter)
 
 Less Hash Bloom Filter is fast bloom filter suitable for Big Data. 
 
