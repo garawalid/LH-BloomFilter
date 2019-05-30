@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 if __name__ == "__main__":
     setup(
         name='LessHash-BloomFilter',
-        version='0.0.1',
+        version='0.0.2',
         packages=find_packages(exclude=['tests']),
         license='Apache License v2',
         maintainer='Walid Gara',
