@@ -45,10 +45,10 @@ bf.combine(bf2)
 + k hash functions:  
 
     Using two hash functions, we calculate the k hash functions as follows: 
-     
-    <img src="http://www.sciweavers.org/tex2img.php?eq=g_i%28x%29%20%3D%20h_1%28x%29%20%2B%20i%20%5Ctimes%20h_2%28x%29%20%5Cmod%20m%20%5Ctextrm%7B%2C%20where%20%7D%200%20%20%20%5Cleq%20%20i%20%20%20%5Cleq%20%20k-1&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0" align="center" border="0" alt="g_i(x) = h_1(x) + i \times h_2(x) \mod m \textrm{, where } 0   \leq  i   \leq  k-1" width="442" height="19" />
     
-    It has been proved that using this method doesn't increase the asymptotic false positive probability [4].
+    *g<sub>i</sub>(x) = h<sub>1</sub>(x) + i x h<sub>2</sub>(x) mod m, where 0 &le; i &le; k-1*  
+    
+    It has been proved that using this method does not increase the asymptotic false positive probability [4].
 
 
 ### Contributing
@@ -57,7 +57,7 @@ You're welcome to submit pull requests with any changes for this repository at a
 
 ### References
 
-[1] []()
-[2] []()
-[3] []()
-[4] []()
++ [1] Luo, Lailong, et al. Optimizing bloom filter: challenges, solutions, and comparisons. IEEE Communications Surveys & Tutorials (2018).  
++ [2] Knuth, Donald Ervin. The art of computer programming: sorting and searching. Vol. 3. Pearson Education, 1997.
++ [3] Karp, Richard M., and Michael O. Rabin. Efficient randomized pattern-matching algorithms. IBM journal of research and development 31.2 (1987): 249-260.  
++ [4] Kirsch, Adam, and Michael Mitzenmacher. Less hashing, same performance: building a better bloom filter. European Symposium on Algorithms. Springer, Berlin, Heidelberg, 2006.
