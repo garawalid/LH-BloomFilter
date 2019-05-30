@@ -2,13 +2,13 @@ import warnings
 
 import numpy as np
 
-from hash_function import hash_int, hash_str
+from lhbf.hash_function import hash_str, hash_int
 
 
 class BloomFilter():
 
     def __init__(self, m=10000, k=3):
-        if m < 20:
+        if m < 50:
             raise warnings.warn("Please choose a higher m to reduce the probability of two random elements colliding")
         self.m = m  # length of victor
         self.k = k  # number of hash functions
