@@ -8,6 +8,13 @@ Also, bloom filter requires multiple independent hash functions, and well-design
 
 In this implementation, we use a different technique to generate the k hash functions from only two. Therefore, the bloom filter is fast.
 
+### Install
+
+Install Less Hash Bloom Filter with pip as follows:
+```
+$ pip install LessHash-BloomFilter
+```
+
 ### Usage
 
 LHBF needs to know the size of bloom filter `m` and number of hash functions `k`.
