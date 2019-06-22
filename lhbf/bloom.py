@@ -99,3 +99,39 @@ class BloomFilter():
             self.vector = np.logical_or(self.vector, bloom_filter.vector)
         else:
             raise ValueError("Bloom filters should have the same parameters (m, k)")
+
+    def save(self, file):
+        """
+        Save the bloom filter as binary file
+
+        Parameters
+        ----------
+        file : file, str, or pathlib.Path
+            File or filename to which the data is saved.  If file is a file-object,
+            then the filename is unchanged.  If file is a string or Path, a ``.npy``
+            extension will be appended to the file name if it does not already
+            have one.
+        """
+
+        data = np.array([self.m, self.k, self.n])
+        data = np.concatenate((data, self.vector), axis=0)
+        np.save(file, data)
+
+    def load(self, file):
+        """
+        Load a bloom filter from binary file
+
+        Parameters
+        ----------
+        file : str
+            The file to read. It should be in ``.npy`` foramt.
+        """
+
+        # Todo : check if the file is a bloom filter.
+        data = np.load(file)
+        self.m = data[0]
+        self.k = data[1]
+        self.n = data[2]
+        self.vector = data[3:]
+
+        return self

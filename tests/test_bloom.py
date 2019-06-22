@@ -1,8 +1,20 @@
 from lhbf import BloomFilter
 import unittest
+from numpy.testing import assert_array_equal
 
 
 class BloomTest(unittest.TestCase):
+
+    @property
+    def bf(self):
+        bf = BloomFilter(m=100, k=2)
+        examples = [1, 2, 3, 4, 5, 6]
+
+        for e in examples:
+            bf.add(e)
+
+        return bf
+
     def test_bloom_str(self):
         bf = BloomFilter(m=200, k=2)
 
@@ -83,3 +95,13 @@ class BloomTest(unittest.TestCase):
         msg = "Bloom filter should have the same parameters (m, k)"
         with self.assertRaises(ValueError, msg=msg):
             bf1.combine(bf2)
+
+    def test_save_load(self):
+
+        self.bf.save('bf.npy')
+        bf_new = BloomFilter().load('bf.npy')
+
+        assert_array_equal(bf_new.vector, self.bf.vector)
+        assert (bf_new.m == self.bf.m)
+        assert (bf_new.k == self.bf.k)
+        assert (bf_new.n == self.bf.n)
