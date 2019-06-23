@@ -1,7 +1,7 @@
 ## Less Hash Bloom Filter
 [![Build Status](https://travis-ci.com/garawalid/LH-BloomFilter.svg?branch=master)](https://travis-ci.com/garawalid/LH-BloomFilter)
 
-Less Hash Bloom Filter is fast bloom filter suitable for Big Data. 
+Less Hash Bloom Filter is fast bloom filter. 
 
 The computation of hash functions and checking the existence of an element is a major computation overhead. 
 Also, bloom filter requires multiple independent hash functions, and well-designed hash functions are computation-intensive like MD5, SHA-1 [1].  
@@ -41,6 +41,12 @@ bf.estimate_fpp()
 # Combine two bloom filters
 bf2 = BloomFilter(m=200, k=2)
 bf.combine(bf2)
+
+# Save bloom filter as a binary file in npy format.
+bf.save('bf.npy')
+
+# Load bloom filter from a file 
+bf3 = BloomFilter().load('bf.npy')
 
 ```
 
