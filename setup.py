@@ -11,7 +11,7 @@ except FileNotFoundError:
 if __name__ == "__main__":
     setup(
         name='LessHash-BloomFilter',
-        version='0.0.4',
+        version='0.0.5',
         packages=find_packages(exclude=['tests']),
         license='Apache License v2',
         maintainer='Walid Gara',
